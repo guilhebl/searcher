@@ -1,0 +1,272 @@
+{
+  "metadata": {
+    "context": {
+      "canonicalUrl": "https://api.bestbuy.com/beta/products/trendingViewed?format=json&apiKey=test&LID=test"
+    },
+    "resultSet": {
+      "count": 10
+    }
+  },
+  "results": [
+    {
+      "sku": "6306443",
+      "customerReviews": {
+        "averageScore": 5.00,
+        "count": 3
+      },
+      "descriptions": {
+        "short": "Matte finish; internet radio; wireless surround capability"
+      },
+      "images": {
+        "standard": "https://img.bbystatic.com/BestBuy_US/images/products/6306/6306443_sa.jpg"
+      },
+      "names": {
+        "title": "Sonos - Geek Squad Certified Refurbished Play 5 Powered Wireless 2-Way Speaker (Each) - Matte Black"
+      },
+      "prices": {
+        "regular": 499.99,
+        "current": 399.99
+      },
+      "links": {
+        "product": "https://api.bestbuy.com/v1/products/6306443.json?apiKey=test&LID=test",
+        "web": "https://api.bestbuy.com/click/-/6306443/pdp",
+        "addToCart": "https://api.bestbuy.com/click/-/6306443/cart"
+      },
+      "rank": 1
+    },
+    {
+      "sku": "6219241",
+      "customerReviews": {
+        "averageScore": 5.00,
+        "count": 1
+      },
+      "descriptions": {
+        "short": "Windows 10 Pro 64-bitTechnical details: 4th Gen Intel&#174; Core&#8482; i5 processor; 14\" display; 8GB memory; 128GB solid-state driveSpecial features: DisplayPort; cable lock slotWebcam not included"
+      },
+      "images": {
+        "standard": "https://img.bbystatic.com/BestBuy_US/images/products/6219/6219241_sa.jpg"
+      },
+      "names": {
+        "title": "HP - ProBook 14\" Laptop - Intel Core i5 - 8GB Memory - 128GB Solid State Drive - Pre-Owned - Black"
+      },
+      "prices": {
+        "regular": 305.99,
+        "current": 305.99
+      },
+      "links": {
+        "product": "https://api.bestbuy.com/v1/products/6219241.json?apiKey=test&LID=test",
+        "web": "https://api.bestbuy.com/click/-/6219241/pdp",
+        "addToCart": "https://api.bestbuy.com/click/-/6219241/cart"
+      },
+      "rank": 2
+    },
+    {
+      "sku": "6207900",
+      "customerReviews": {
+        "averageScore": 4.60,
+        "count": 642
+      },
+      "descriptions": {
+        "short": "Only at Best Buy\nWindows 10 HomeNVIDIA GeForce GTX 1060 6GB dedicated graphicsTechnical details: 8th Gen Intel&#174; Core&#8482; i7-8750H processor; 15.6\" display; 16GB memory; 128GB solid state drive; 1TB Hybrid DriveNote: DVD/CD drive not included"
+      },
+      "images": {
+        "standard": "https://img.bbystatic.com/BestBuy_US/images/products/6207/6207900_sa.jpg"
+      },
+      "names": {
+        "title": "ASUS - ROG GU501GM 15.6\" Gaming Laptop - Intel Core i7 - 16GB Memory - NVIDIA GeForce GTX 1060 - 1TB Hybrid Drive + 128GB SSD - Brushed Black"
+      },
+      "prices": {
+        "regular": 1499.99,
+        "current": 1199.99
+      },
+      "links": {
+        "product": "https://api.bestbuy.com/v1/products/6207900.json?apiKey=test&LID=test",
+        "web": "https://api.bestbuy.com/click/-/6207900/pdp",
+        "addToCart": "https://api.bestbuy.com/click/-/6207900/cart"
+      },
+      "rank": 3
+    },
+    {
+      "sku": "9090117",
+      "customerReviews": {
+        "averageScore": 4.90,
+        "count": 468
+      },
+      "descriptions": {
+        "short": "10.5-inch Retina (diagonal) displayA10X Fusion chip with 64-bit desktop-class architectureTouch ID fingerprint sensor12MP camera with 4K HD Video7MP FaceTime HD camera"
+      },
+      "images": {
+        "standard": "https://img.bbystatic.com/BestBuy_US/images/products/9090/9090117_sa.jpg"
+      },
+      "names": {
+        "title": "Apple - 10.5-Inch iPad Pro   with Wi-Fi - 512GB - Space Gray"
+      },
+      "prices": {
+        "regular": 999.99,
+        "current": 699.99
+      },
+      "links": {
+        "product": "https://api.bestbuy.com/v1/products/9090117.json?apiKey=test&LID=test",
+        "web": "https://api.bestbuy.com/click/-/9090117/pdp",
+        "addToCart": "https://api.bestbuy.com/click/-/9090117/cart"
+      },
+      "rank": 4
+    },
+    {
+      "sku": "6295916",
+      "customerReviews": {
+        "averageScore": 4.60,
+        "count": 258
+      },
+      "descriptions": {
+        "short": "Windows 10 Home4K Ultra HDNVIDIA GeForce MX150 2GB dedicated graphicsTechnical details: 8th-gen Intel&#174; Core&#8482; i7-8565U processor; 15.6\" display; 16GB memory; 512GB solid-state driveSpecial features: Bluetooth; touch screen; backlit keyboardNote: DVD/CD drive is not included"
+      },
+      "images": {
+        "standard": "https://img.bbystatic.com/BestBuy_US/images/products/6295/6295916_sa.jpg"
+      },
+      "names": {
+        "title": "Dell - Inspiron 2-in-1 15.6\" 4K Ultra HD Touch-Screen Laptop - Intel Core i7 - 16GB Memory - 512GB Solid State Drive - Black"
+      },
+      "prices": {
+        "regular": 1399.99,
+        "current": 1119.99
+      },
+      "links": {
+        "product": "https://api.bestbuy.com/v1/products/6295916.json?apiKey=test&LID=test",
+        "web": "https://api.bestbuy.com/click/-/6295916/pdp",
+        "addToCart": "https://api.bestbuy.com/click/-/6295916/cart"
+      },
+      "rank": 5
+    },
+    {
+      "sku": "6213223",
+      "customerReviews": {
+        "averageScore": 4.40,
+        "count": 658
+      },
+      "descriptions": {
+        "short": "2160p (4K) resolution with HDRSmart TV, SmartCastClear Action 720"
+      },
+      "images": {
+        "standard": "https://img.bbystatic.com/BestBuy_US/images/products/6213/6213223_sa.jpg"
+      },
+      "names": {
+        "title": "VIZIO - 55\" Class - LED - P-Series - 2160p - Smart - 4K UHD TV with HDR"
+      },
+      "prices": {
+        "regular": 749.99,
+        "current": 749.99
+      },
+      "links": {
+        "product": "https://api.bestbuy.com/v1/products/6213223.json?apiKey=test&LID=test",
+        "web": "https://api.bestbuy.com/click/-/6213223/pdp",
+        "addToCart": "https://api.bestbuy.com/click/-/6213223/cart"
+      },
+      "rank": 6
+    },
+    {
+      "sku": "5732548",
+      "customerReviews": {
+        "averageScore": 4.30,
+        "count": 1776
+      },
+      "descriptions": {
+        "short": "Refurbished; Powerbeats&#179; Wireless earphones are ready for any challenge with up to 12 hours of battery life to fuel multiple long workouts and powerful, dynamic sound to keep you pushing."
+      },
+      "images": {
+        "standard": "https://img.bbystatic.com/BestBuy_US/images/products/5732/5732548_ra.jpg"
+      },
+      "names": {
+        "title": "Beats by Dr. Dre - Geek Squad Certified Refurbished Powerbeats³ Wireless - Black"
+      },
+      "prices": {
+        "regular": 199.99,
+        "current": 89.99
+      },
+      "links": {
+        "product": "https://api.bestbuy.com/v1/products/5732548.json?apiKey=test&LID=test",
+        "web": "https://api.bestbuy.com/click/-/5732548/pdp",
+        "addToCart": "https://api.bestbuy.com/click/-/5732548/cart"
+      },
+      "rank": 7
+    },
+    {
+      "sku": "6290721",
+      "customerReviews": {
+        "averageScore": 4.70,
+        "count": 943
+      },
+      "descriptions": {
+        "short": "Windows 10 Home 64-bitAMD Radeon RX 580 4GB dedicated graphicsTechnical details: AMD Ryzen 5-2600 processor; 8GB memory; 240GB solid state drive; 2TB hard driveSpecial features: built-in wireless networking; HDMI output; keyboard; mouse"
+      },
+      "images": {
+        "standard": "https://img.bbystatic.com/BestBuy_US/images/products/6290/6290721_ra.jpg"
+      },
+      "names": {
+        "title": "CyberPowerPC - Gaming Desktop - AMD Ryzen 5 2500X- 8GB Memory- AMD Radeon RX 580 4GB - 2TB HDD + 240GB SSD - Black"
+      },
+      "prices": {
+        "regular": 879.99,
+        "current": 703.99
+      },
+      "links": {
+        "product": "https://api.bestbuy.com/v1/products/6290721.json?apiKey=test&LID=test",
+        "web": "https://api.bestbuy.com/click/-/6290721/pdp",
+        "addToCart": "https://api.bestbuy.com/click/-/6290721/cart"
+      },
+      "rank": 8
+    },
+    {
+      "sku": "6305030",
+      "customerReviews": {
+        "averageScore": 4.00,
+        "count": 23
+      },
+      "descriptions": {
+        "short": "Pre-OwnediOS4G LTE speed5.5\" screen12.0MP rear- and 7.0MP front-facing camerasOnly compatible with GSM carriers, including AT&T, T-Mobile and Cricket"
+      },
+      "images": {
+        "standard": "https://img.bbystatic.com/BestBuy_US/images/products/6305/6305030_sa.jpg"
+      },
+      "names": {
+        "title": "Apple - Pre-Owned iPhone 7 Plus with 128GB Memory Cell Phone (Unlocked) - Jet Black"
+      },
+      "prices": {
+        "regular": 389.99,
+        "current": 389.99
+      },
+      "links": {
+        "product": "https://api.bestbuy.com/v1/products/6305030.json?apiKey=test&LID=test",
+        "web": "https://api.bestbuy.com/click/-/6305030/pdp",
+        "addToCart": "https://api.bestbuy.com/click/-/6305030/cart"
+      },
+      "rank": 9
+    },
+    {
+      "sku": "6280428",
+      "customerReviews": {
+        "averageScore": 5.00,
+        "count": 1
+      },
+      "descriptions": {
+        "short": "RefurbishedMac OS 10.13 High SierraTechnical details: 4th Gen Intel&#174; Core&#8482; i5-4260U processor; 13.3\" display; 4GB memory; 128GB solid state driveSpecial features: Bluetooth; backlit keyboardNote: DVD/CD drive not included"
+      },
+      "images": {
+        "standard": "https://img.bbystatic.com/BestBuy_US/images/products/6280/6280428_sa.jpg"
+      },
+      "names": {
+        "title": "Apple - MacBook Air 13.3\" Refurbished Laptop - Intel Core i5 - 4GB Memory - 128GB Solid State Drive - Silver"
+      },
+      "prices": {
+        "regular": 679.99,
+        "current": 679.99
+      },
+      "links": {
+        "product": "https://api.bestbuy.com/v1/products/6280428.json?apiKey=test&LID=test",
+        "web": "https://api.bestbuy.com/click/-/6280428/pdp",
+        "addToCart": "https://api.bestbuy.com/click/-/6280428/cart"
+      },
+      "rank": 10
+    }
+  ]
+}

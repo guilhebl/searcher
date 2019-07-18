@@ -1,0 +1,387 @@
+{
+  "from": 1,
+  "to": 1,
+  "currentPage": 1,
+  "total": 1,
+  "totalPages": 1,
+  "queryTime": "0.027",
+  "totalTime": "0.034",
+  "partial": false,
+  "canonicalUrl": "/v1/products(upc=\"627988401003\")?LID=test&format=json&apiKey=test",
+  "products": [
+    {
+      "sku": 5823202,
+      "score": null,
+      "productId": null,
+      "name": "ecobee - ecobee4 Wi-Fi Thermostat with Room Sensor and Built-In Alexa Voice Service - Black",
+      "source": null,
+      "type": "HardGood",
+      "startDate": "2017-05-03",
+      "new": false,
+      "active": true,
+      "lowPriceGuarantee": true,
+      "activeUpdateDate": "2017-05-03T07:02:54",
+      "regularPrice": 249.99,
+      "salePrice": 229.99,
+      "clearance": false,
+      "onSale": true,
+      "planPrice": null,
+      "priceWithPlan": [],
+      "contracts": [],
+      "priceRestriction": null,
+      "priceUpdateDate": "2019-07-17T00:00:46",
+      "digital": false,
+      "preowned": false,
+      "carriers": [],
+      "planFeatures": [],
+      "devices": [],
+      "carrierPlans": [],
+      "technologyCode": null,
+      "carrierModelNumber": null,
+      "earlyTerminationFees": [],
+      "monthlyRecurringCharge": "",
+      "monthlyRecurringChargeGrandTotal": "",
+      "activationCharge": "",
+      "minutePrice": "",
+      "planCategory": null,
+      "planType": null,
+      "familyIndividualCode": null,
+      "validFrom": null,
+      "validUntil": null,
+      "carrierPlan": null,
+      "outletCenter": null,
+      "secondaryMarket": null,
+      "frequentlyPurchasedWith": [],
+      "accessories": [],
+      "relatedProducts": [],
+      "requiredParts": [],
+      "techSupportPlans": [],
+      "crossSell": [],
+      "salesRankShortTerm": 2645,
+      "salesRankMediumTerm": 3334,
+      "salesRankLongTerm": 1710,
+      "bestSellingRank": 1931,
+      "url": "https://api.bestbuy.com/click/-/5823202/pdp",
+      "spin360Url": null,
+      "mobileUrl": "https://api.bestbuy.com/click/-/5823202/pdp",
+      "affiliateUrl": null,
+      "addToCartUrl": "https://api.bestbuy.com/click/-/5823202/cart",
+      "affiliateAddToCartUrl": null,
+      "linkShareAffiliateUrl": "https://api.bestbuy.com/click/-/5823202/pdp?LID=test&u1=",
+      "linkShareAffiliateAddToCartUrl": "https://api.bestbuy.com/click/-/5823202/cart?LID=test&u1=",
+      "upc": "627988401003",
+      "productTemplate": "Programmable_Thermostats",
+      "categoryPath": [
+        {
+          "id": "cat00000",
+          "name": "Best Buy"
+        },
+        {
+          "id": "pcmcat254000050002",
+          "name": "Smart Home"
+        },
+        {
+          "id": "pcmcat308100050018",
+          "name": "Smart & Wi-Fi Thermostats"
+        }
+      ],
+      "alternateCategories": [],
+      "lists": [],
+      "customerReviewCount": 1160,
+      "customerReviewAverage": 4.60,
+      "customerTopRated": true,
+      "format": null,
+      "freeShipping": false,
+      "freeShippingEligible": true,
+      "inStoreAvailability": true,
+      "inStoreAvailabilityText": "Store Pickup:",
+      "inStoreAvailabilityUpdateDate": "2019-01-16T11:07:13",
+      "itemUpdateDate": "2019-07-17T04:35:04",
+      "onlineAvailability": true,
+      "onlineAvailabilityText": "Shipping: Usually ships in 1 business day",
+      "onlineAvailabilityUpdateDate": "2018-08-20T01:00:55",
+      "releaseDate": "2017-05-15",
+      "shippingCost": "",
+      "shipping": [
+        {
+          "ground": "",
+          "secondDay": "",
+          "nextDay": "",
+          "vendorDelivery": ""
+        }
+      ],
+      "shippingLevelsOfService": [],
+      "specialOrder": false,
+      "shortDescription": "Built-in Alexa Voice Services; Apple&#174; HomeKit-enabled; room sensor included;  Set timer and adjust temperature with your voice; Works with gas, oil, electric, dual-fuel, conventional 2H/2C, and 4H/2C heat pumps, humidifiers, dehumidifiers, ventilators, HRVs or ERVs;  Wi-Fi capability; 3.5\" full-color LCD touch screen",
+      "class": "HOME CONTROL",
+      "classId": 280,
+      "subclass": "SMART THERMOSTATS",
+      "subclassId": 1287,
+      "department": "ACCESSORIES",
+      "departmentId": 12,
+      "protectionPlanTerm": "ECO",
+      "protectionPlanType": null,
+      "protectionPlanLowPrice": "",
+      "protectionPlanHighPrice": "",
+      "buybackPlans": [],
+      "protectionPlans": [],
+      "protectionPlanDetails": [],
+      "productFamilies": [],
+      "productVariations": [],
+      "aspectRatio": null,
+      "screenFormat": null,
+      "lengthInMinutes": null,
+      "mpaaRating": null,
+      "plot": null,
+      "studio": null,
+      "theatricalReleaseDate": null,
+      "description": null,
+      "manufacturer": "ecobee",
+      "modelNumber": "EB-STATE4-01",
+      "images": [
+        {
+          "rel": "Front_Zoom",
+          "unitOfMeasure": "pixels",
+          "width": "1000",
+          "height": "831",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202_sd.jpg"
+        },
+        {
+          "rel": "Alt_View_Standard_18",
+          "unitOfMeasure": "pixels",
+          "width": "500",
+          "height": "344",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202cv18a.jpg"
+        },
+        {
+          "rel": "Alt_View_Standard_19",
+          "unitOfMeasure": "pixels",
+          "width": "500",
+          "height": "344",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202cv19a.jpg"
+        },
+        {
+          "rel": "Alt_View_Standard_14",
+          "unitOfMeasure": "pixels",
+          "width": "488",
+          "height": "500",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202cv14a.jpg"
+        },
+        {
+          "rel": "Alt_View_Zoom_11",
+          "unitOfMeasure": "pixels",
+          "width": "1000",
+          "height": "906",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202cv11d.jpg"
+        },
+        {
+          "rel": "Alt_View_Standard_15",
+          "unitOfMeasure": "pixels",
+          "width": "418",
+          "height": "500",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202cv15a.jpg"
+        },
+        {
+          "rel": "Alt_View_Standard_16",
+          "unitOfMeasure": "pixels",
+          "width": "488",
+          "height": "500",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202cv16a.jpg"
+        },
+        {
+          "rel": "Alt_View_Standard_17",
+          "unitOfMeasure": "pixels",
+          "width": "500",
+          "height": "279",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202cv17a.jpg"
+        },
+        {
+          "rel": "Front_Thumbnail",
+          "unitOfMeasure": "pixels",
+          "width": "54",
+          "height": "45",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202_s.gif"
+        },
+        {
+          "rel": "Alt_View_Standard_11",
+          "unitOfMeasure": "pixels",
+          "width": "500",
+          "height": "453",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202cv11a.jpg"
+        },
+        {
+          "rel": "Alt_View_Standard_12",
+          "unitOfMeasure": "pixels",
+          "width": "417",
+          "height": "500",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202cv12a.jpg"
+        },
+        {
+          "rel": "Alt_View_Standard_13",
+          "unitOfMeasure": "pixels",
+          "width": "295",
+          "height": "500",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202cv13a.jpg"
+        },
+        {
+          "rel": "Front_Standard",
+          "unitOfMeasure": "pixels",
+          "width": "500",
+          "height": "416",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202_sa.jpg"
+        },
+        {
+          "rel": "Alt_View_Zoom_15",
+          "unitOfMeasure": "pixels",
+          "width": "836",
+          "height": "1000",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202cv15d.jpg"
+        },
+        {
+          "rel": "Alt_View_Zoom_13",
+          "unitOfMeasure": "pixels",
+          "width": "590",
+          "height": "1000",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202cv13d.jpg"
+        },
+        {
+          "rel": "Alt_View_Zoom_12",
+          "unitOfMeasure": "pixels",
+          "width": "834",
+          "height": "1000",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202cv12d.jpg"
+        },
+        {
+          "rel": "Alt_View_Zoom_19",
+          "unitOfMeasure": "pixels",
+          "width": "1000",
+          "height": "687",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202cv19d.jpg"
+        },
+        {
+          "rel": "Alt_View_Zoom_18",
+          "unitOfMeasure": "pixels",
+          "width": "1000",
+          "height": "687",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202cv18d.jpg"
+        },
+        {
+          "rel": "Alt_View_Zoom_17",
+          "unitOfMeasure": "pixels",
+          "width": "1000",
+          "height": "558",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202cv17d.jpg"
+        },
+        {
+          "rel": "Alt_View_Zoom_16",
+          "unitOfMeasure": "pixels",
+          "width": "976",
+          "height": "1000",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202cv16d.jpg"
+        },
+        {
+          "rel": "Front_Detail",
+          "unitOfMeasure": "pixels",
+          "width": "105",
+          "height": "87",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202_sc.jpg"
+        },
+        {
+          "rel": "Front_Medium",
+          "unitOfMeasure": "pixels",
+          "width": "70",
+          "height": "58",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202fp.gif"
+        },
+        {
+          "rel": "Front_Large",
+          "unitOfMeasure": "pixels",
+          "width": "193",
+          "height": "160",
+          "href": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202_sb.jpg"
+        }
+      ],
+      "image": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202_sa.jpg",
+      "largeFrontImage": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202_sd.jpg",
+      "mediumImage": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202fp.gif",
+      "thumbnailImage": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202_s.gif",
+      "largeImage": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202_sb.jpg",
+      "alternateViewsImage": "https://img.bbystatic.com/BestBuy_US/images/products/5823/5823202cv11d.jpg",
+      "angleImage": null,
+      "backViewImage": null,
+      "energyGuideImage": null,
+      "leftViewImage": null,
+      "accessoriesImage": null,
+      "remoteControlImage": null,
+      "rightViewImage": null,
+      "topViewImage": null,
+      "albumTitle": "ecobee4 Wi-Fi Thermostat with Room Sensor and Built-In Alexa Voice Service",
+      "artistName": null,
+      "artistId": null,
+      "originalReleaseDate": null,
+      "parentalAdvisory": null,
+      "mediaCount": null,
+      "monoStereo": null,
+      "studioLive": null,
+      "condition": "New",
+      "inStorePickup": true,
+      "friendsAndFamilyPickup": true,
+      "homeDelivery": false,
+      "quantityLimit": 20,
+      "fulfilledBy": null,
+      "members": [],
+      "bundledIn": [],
+      "albumLabel": null,
+      "genre": null,
+      "color": "Black",
+      "depth": "1.02 inches",
+      "dollarSavings": 20.00,
+      "percentSavings": "8.0",
+      "tradeInValue": "",
+      "height": "2 inches",
+      "orderable": "Available",
+      "weight": "1.2 pounds",
+      "shippingWeight": 2.00,
+      "width": "5.5 inches",
+      "warrantyLabor": "3 Years",
+      "warrantyParts": "3 Years",
+      "softwareAge": null,
+      "softwareGrade": null,
+      "platform": null,
+      "numberOfPlayers": null,
+      "softwareNumberOfPlayers": null,
+      "esrbRating": null,
+      "longDescription": "With built-in Alexa Voice Service, ecobee4 can listen to your voice commands and respond. Have it set a timer, read you the news, adjust the temperature, and more. It also comes with a room sensor that helps manage hot and cold spots in your home, delivering comfort in the rooms that matter. And because they can detect occupancy, they can automatically enable the right mode on your ecobee4 for energy savings when it senses no one is home.",
+      "includedItemList": [
+        {
+          "includedItem": "Owner's manual"
+        },
+        {
+          "includedItem": "Power Extender Kit"
+        },
+        {
+          "includedItem": "Room sensor with detachable stand"
+        },
+        {
+          "includedItem": "Screws and drywall plugs"
+        },
+        {
+          "includedItem": "Wire labels"
+        },
+        {
+          "includedItem": "ecobee4 Wi-Fi Thermostat"
+        },
+        {
+          "includedItem": "ecobee4 mounting plate"
+        }
+      ],
+      "marketplace": null,
+      "listingId": null,
+      "sellerId": null,
+      "shippingRestrictions": null,
+      "proposition65WarningMessage": null,
+      "proposition65WarningType": "04",
+      "energyStarQualified": true
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "findItemsByKeywordsResponse": [
+    {
+      "ack": [
+        "Success"
+      ],
+      "version": [
+        "1.13.0"
+      ],
+      "timestamp": [
+        "2019-07-18T00:54:06.299Z"
+      ],
+      "searchResult": [
+        {
+          "@count": "0"
+        }
+      ],
+      "paginationOutput": [
+        {
+          "pageNumber": [
+            "0"
+          ],
+          "entriesPerPage": [
+            "10"
+          ],
+          "totalPages": [
+            "0"
+          ],
+          "totalEntries": [
+            "0"
+          ]
+        }
+      ],
+      "itemSearchURL": [
+        "https:\/\/rover.ebay.com\/rover\/1\/711-53200-19255-0\/1?ff3=4&toolid=10041&campid=1&customid=test&lgeo=1&mpre=http%3A%2F%2Fwww.ebay.com%2Fsch%2Fi.html%3F_nkw%3Dtesttesttesttesttesttesttesttest%26_ddo%3D1%26_ipg%3D10%26_os%3DPL%257CD%26_pgn%3D1"
+      ]
+    }
+  ]
+}

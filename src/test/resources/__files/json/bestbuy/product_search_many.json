@@ -1,0 +1,211 @@
+{
+  "from": 1,
+  "to": 6,
+  "currentPage": 1,
+  "total": 6,
+  "totalPages": 1,
+  "queryTime": "0.034",
+  "totalTime": "0.049",
+  "partial": false,
+  "canonicalUrl": "/v1/products(search=\"state\"&search=\"of\"&search=\"the\"&search=\"art\")?show=productId,upc,sku,name,salePrice,releaseDate,url,image,thumbnailImage,manufacturer,department,customerReviewAverage,customerReviewCount,categoryPath,new,linkShareAffiliateUrl&pageSize=10&LID=test&format=json&apiKey=test",
+  "products": [
+    {
+      "productId": null,
+      "upc": "883919276908",
+      "sku": 6289662,
+      "name": "Illustrator CC - 12-Month Prepaid Membership - Mac|Windows",
+      "salePrice": 239.99,
+      "releaseDate": "2018-10-21",
+      "url": "https://api.bestbuy.com/click/-/6289662/pdp",
+      "image": "https://img.bbystatic.com/BestBuy_US/images/products/6289/6289662_sa.jpg",
+      "thumbnailImage": "https://img.bbystatic.com/BestBuy_US/images/products/6289/6289662_s.gif",
+      "manufacturer": "Adobe",
+      "department": "COMPUTER SOFTWARE",
+      "customerReviewAverage": 4.50,
+      "customerReviewCount": 2,
+      "categoryPath": [
+        {
+          "id": "cat00000",
+          "name": "Best Buy"
+        },
+        {
+          "id": "abcat0500000",
+          "name": "Computers & Tablets"
+        },
+        {
+          "id": "abcat0508000",
+          "name": "Software"
+        },
+        {
+          "id": "abcat0508018",
+          "name": "Design & Illustration"
+        },
+        {
+          "id": "pcmcat209600050009",
+          "name": "Graphic Design Software"
+        }
+      ],
+      "new": false,
+      "linkShareAffiliateUrl": "https://api.bestbuy.com/click/-/6289662/pdp?LID=test&u1="
+    },
+    {
+      "productId": null,
+      "upc": "841887042000",
+      "sku": 34553859,
+      "name": "State of the Art [DVD]",
+      "salePrice": 17.99,
+      "releaseDate": "2019-08-06",
+      "url": "https://api.bestbuy.com/click/-/34553859/pdp",
+      "image": "https://img.bbystatic.com/BestBuy_US/images/products/3455/34553859_sa.jpg",
+      "thumbnailImage": "https://img.bbystatic.com/BestBuy_US/images/products/3455/34553859_s.gif",
+      "manufacturer": null,
+      "department": "VIDEO/COMPACT DISC",
+      "customerReviewAverage": null,
+      "customerReviewCount": null,
+      "categoryPath": [
+        {
+          "id": "cat00000",
+          "name": "Best Buy"
+        },
+        {
+          "id": "abcat0600000",
+          "name": "Movies & Music"
+        },
+        {
+          "id": "cat02015",
+          "name": "Movies & TV Shows"
+        }
+      ],
+      "new": false,
+      "linkShareAffiliateUrl": "https://api.bestbuy.com/click/-/34553859/pdp?LID=test&u1="
+    },
+    {
+      "productId": null,
+      "upc": "5054197663611",
+      "sku": 32866358,
+      "name": "State of the Art Live! [LP] - VINYL",
+      "salePrice": 39.99,
+      "releaseDate": "2017-06-02",
+      "url": "https://api.bestbuy.com/click/-/32866358/pdp",
+      "image": "https://img.bbystatic.com/BestBuy_US/images/products/3286/32866358_sa.jpg",
+      "thumbnailImage": "https://img.bbystatic.com/BestBuy_US/images/products/3286/32866358_s.gif",
+      "manufacturer": null,
+      "department": "VIDEO/COMPACT DISC",
+      "customerReviewAverage": null,
+      "customerReviewCount": null,
+      "categoryPath": [
+        {
+          "id": "cat00000",
+          "name": "Best Buy"
+        },
+        {
+          "id": "abcat0600000",
+          "name": "Movies & Music"
+        },
+        {
+          "id": "cat02001",
+          "name": "Music"
+        }
+      ],
+      "new": false,
+      "linkShareAffiliateUrl": "https://api.bestbuy.com/click/-/32866358/pdp?LID=test&u1="
+    },
+    {
+      "productId": null,
+      "upc": "753218986962",
+      "sku": 6256839,
+      "name": "Wacom - Cintiq Pro 24 Creative Pen and Touch Display - Black",
+      "salePrice": 2749.99,
+      "releaseDate": null,
+      "url": "https://api.bestbuy.com/click/-/6256839/pdp",
+      "image": "https://img.bbystatic.com/BestBuy_US/images/products/6256/6256839_sa.jpg",
+      "thumbnailImage": "https://img.bbystatic.com/BestBuy_US/images/products/6256/6256839_s.gif",
+      "manufacturer": "Wacom",
+      "department": "COMPUTERS",
+      "customerReviewAverage": 5.00,
+      "customerReviewCount": 1,
+      "categoryPath": [
+        {
+          "id": "cat00000",
+          "name": "Best Buy"
+        },
+        {
+          "id": "abcat0500000",
+          "name": "Computers & Tablets"
+        },
+        {
+          "id": "abcat0515000",
+          "name": "Computer Accessories & Peripherals"
+        },
+        {
+          "id": "abcat0513006",
+          "name": "Graphics Tablets"
+        }
+      ],
+      "new": false,
+      "linkShareAffiliateUrl": "https://api.bestbuy.com/click/-/6256839/pdp?LID=test&u1="
+    },
+    {
+      "productId": 2653861,
+      "upc": "5055311071428",
+      "sku": 20993817,
+      "name": "Texas Tornados: Rock 'n' Roll from the Lone Star State [LP] - VINYL",
+      "salePrice": 34.99,
+      "releaseDate": "2013-03-19",
+      "url": "https://api.bestbuy.com/click/-/20993817/pdp",
+      "image": "https://img.bbystatic.com/BestBuy_US/images/products/2099/20993817_sa.jpg",
+      "thumbnailImage": "https://img.bbystatic.com/BestBuy_US/images/products/2099/20993817_s.gif",
+      "manufacturer": null,
+      "department": "VIDEO/COMPACT DISC",
+      "customerReviewAverage": null,
+      "customerReviewCount": null,
+      "categoryPath": [
+        {
+          "id": "cat00000",
+          "name": "Best Buy"
+        },
+        {
+          "id": "abcat0600000",
+          "name": "Movies & Music"
+        },
+        {
+          "id": "cat02001",
+          "name": "Music"
+        }
+      ],
+      "new": false,
+      "linkShareAffiliateUrl": "https://api.bestbuy.com/click/-/20993817/pdp?LID=test&u1="
+    },
+    {
+      "productId": null,
+      "upc": "029667008716",
+      "sku": 34320178,
+      "name": "Bob Stanley & Pete Wiggs Present State of the Union: The American Dream in Crisis 1967-1973 [LP] - VINYL",
+      "salePrice": 29.99,
+      "releaseDate": "2018-11-02",
+      "url": "https://api.bestbuy.com/click/-/34320178/pdp",
+      "image": null,
+      "thumbnailImage": null,
+      "manufacturer": null,
+      "department": "VIDEO/COMPACT DISC",
+      "customerReviewAverage": null,
+      "customerReviewCount": null,
+      "categoryPath": [
+        {
+          "id": "cat00000",
+          "name": "Best Buy"
+        },
+        {
+          "id": "abcat0600000",
+          "name": "Movies & Music"
+        },
+        {
+          "id": "cat02001",
+          "name": "Music"
+        }
+      ],
+      "new": false,
+      "linkShareAffiliateUrl": "https://api.bestbuy.com/click/-/34320178/pdp?LID=test&u1="
+    }
+  ]
+}

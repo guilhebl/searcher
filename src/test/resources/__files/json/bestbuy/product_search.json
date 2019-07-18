@@ -1,0 +1,334 @@
+{
+  "from": 1,
+  "to": 10,
+  "currentPage": 1,
+  "total": 224,
+  "totalPages": 23,
+  "queryTime": "0.030",
+  "totalTime": "0.054",
+  "partial": false,
+  "canonicalUrl": "/v1/products(search=\"test\")?show=productId,upc,sku,name,salePrice,releaseDate,url,image,thumbnailImage,manufacturer,department,customerReviewAverage,customerReviewCount,categoryPath,new,linkShareAffiliateUrl&pageSize=10&LID=tes&format=json&apiKey=test",
+  "products": [
+    {
+      "productId": 2815269,
+      "upc": "9991807048788",
+      "sku": 22763984,
+      "name": "Acid Test [Limited Edition] [LP] - VINYL",
+      "salePrice": 34.99,
+      "releaseDate": "2011-10-11",
+      "url": "https://api.bestbuy.com/click/-/22763984/pdp",
+      "image": "https://img.bbystatic.com/BestBuy_US/images/products/2276/22763984_sa.jpg",
+      "thumbnailImage": "https://img.bbystatic.com/BestBuy_US/images/products/2276/22763984_s.gif",
+      "manufacturer": null,
+      "department": "VIDEO/COMPACT DISC",
+      "customerReviewAverage": null,
+      "customerReviewCount": null,
+      "categoryPath": [
+        {
+          "id": "cat00000",
+          "name": "Best Buy"
+        },
+        {
+          "id": "abcat0600000",
+          "name": "Movies & Music"
+        },
+        {
+          "id": "cat02001",
+          "name": "Music"
+        }
+      ],
+      "new": false,
+      "linkShareAffiliateUrl": "https://api.bestbuy.com/click/-/22763984/pdp?LID=tes&u1="
+    },
+    {
+      "productId": null,
+      "upc": null,
+      "sku": 9999300000000289,
+      "name": "Nima - Peanut Sensor & Peanut Test Capsules (12-Pack)",
+      "salePrice": 289.98,
+      "releaseDate": null,
+      "url": "https://api.bestbuy.com/click/-/9999300000000289/pdp",
+      "image": "https://img.bbystatic.com/BestBuy_US/images/products/9999/9999300000000289_sa.jpg",
+      "thumbnailImage": "https://img.bbystatic.com/BestBuy_US/images/products/9999/9999300000000289_s.gif",
+      "manufacturer": "Nima",
+      "department": null,
+      "customerReviewAverage": null,
+      "customerReviewCount": null,
+      "categoryPath": [
+        {
+          "id": "cat00000",
+          "name": "Best Buy"
+        },
+        {
+          "id": "pcmcat242800050021",
+          "name": "Health, Fitness & Beauty"
+        },
+        {
+          "id": "pcmcat333300050027",
+          "name": "Health Monitoring & Testing"
+        },
+        {
+          "id": "pcmcat1539621134914",
+          "name": "Allergen Testing"
+        }
+      ],
+      "new": false,
+      "linkShareAffiliateUrl": "https://api.bestbuy.com/click/-/9999300000000289/pdp?LID=tes&u1="
+    },
+    {
+      "productId": null,
+      "upc": null,
+      "sku": 9999300000000288,
+      "name": "Nima - Gluten Sensor & Gluten Test Capsules (12-Pack) - Black",
+      "salePrice": 289.98,
+      "releaseDate": null,
+      "url": "https://api.bestbuy.com/click/-/9999300000000288/pdp",
+      "image": "https://img.bbystatic.com/BestBuy_US/images/products/9999/9999300000000288_sa.jpg",
+      "thumbnailImage": "https://img.bbystatic.com/BestBuy_US/images/products/9999/9999300000000288_s.gif",
+      "manufacturer": "Nima",
+      "department": null,
+      "customerReviewAverage": null,
+      "customerReviewCount": null,
+      "categoryPath": [
+        {
+          "id": "cat00000",
+          "name": "Best Buy"
+        },
+        {
+          "id": "pcmcat242800050021",
+          "name": "Health, Fitness & Beauty"
+        },
+        {
+          "id": "pcmcat333300050027",
+          "name": "Health Monitoring & Testing"
+        },
+        {
+          "id": "pcmcat1539621134914",
+          "name": "Allergen Testing"
+        }
+      ],
+      "new": false,
+      "linkShareAffiliateUrl": "https://api.bestbuy.com/click/-/9999300000000288/pdp?LID=tes&u1="
+    },
+    {
+      "productId": null,
+      "upc": "850065006192",
+      "sku": 6318376,
+      "name": "Dario - Blood Glucose Test Strips (100-Pack) - Black",
+      "salePrice": 59.99,
+      "releaseDate": null,
+      "url": "https://api.bestbuy.com/click/-/6318376/pdp",
+      "image": "https://img.bbystatic.com/BestBuy_US/images/products/6318/6318376_sa.jpg",
+      "thumbnailImage": "https://img.bbystatic.com/BestBuy_US/images/products/6318/6318376_s.gif",
+      "manufacturer": "Dario",
+      "department": "APPLIANCE",
+      "customerReviewAverage": 5.00,
+      "customerReviewCount": 1,
+      "categoryPath": [
+        {
+          "id": "cat00000",
+          "name": "Best Buy"
+        },
+        {
+          "id": "pcmcat242800050021",
+          "name": "Health, Fitness & Beauty"
+        },
+        {
+          "id": "pcmcat333300050027",
+          "name": "Health Monitoring & Testing"
+        },
+        {
+          "id": "pcmcat333300050030",
+          "name": "Glucose Monitors"
+        }
+      ],
+      "new": false,
+      "linkShareAffiliateUrl": "https://api.bestbuy.com/click/-/6318376/pdp?LID=tes&u1="
+    },
+    {
+      "productId": null,
+      "upc": "400053181020",
+      "sku": 5318102,
+      "name": "BEST GSP SERVICE FEE",
+      "salePrice": 249.99,
+      "releaseDate": "2014-03-06",
+      "url": "https://api.bestbuy.com/click/-/5318102/pdp",
+      "image": null,
+      "thumbnailImage": "https://img.bbystatic.com/BestBuy_US/images/products/nonsku/default_hardlines_s.gif",
+      "manufacturer": null,
+      "department": "DIGITAL COMMUNICATIO",
+      "customerReviewAverage": null,
+      "customerReviewCount": null,
+      "categoryPath": [],
+      "new": false,
+      "linkShareAffiliateUrl": "https://api.bestbuy.com/click/-/5318102/pdp?LID=tes&u1="
+    },
+    {
+      "productId": null,
+      "upc": "869390000287",
+      "sku": 6318494,
+      "name": "Nima - Gluten Test Capsules (12-Pack) - Black",
+      "salePrice": 72.99,
+      "releaseDate": null,
+      "url": "https://api.bestbuy.com/click/-/6318494/pdp",
+      "image": "https://img.bbystatic.com/BestBuy_US/images/products/6318/6318494_sa.jpg",
+      "thumbnailImage": "https://img.bbystatic.com/BestBuy_US/images/products/6318/6318494_s.gif",
+      "manufacturer": "Nima",
+      "department": "APPLIANCE",
+      "customerReviewAverage": 5.00,
+      "customerReviewCount": 1,
+      "categoryPath": [
+        {
+          "id": "cat00000",
+          "name": "Best Buy"
+        },
+        {
+          "id": "pcmcat242800050021",
+          "name": "Health, Fitness & Beauty"
+        },
+        {
+          "id": "pcmcat333300050027",
+          "name": "Health Monitoring & Testing"
+        },
+        {
+          "id": "pcmcat1539621134914",
+          "name": "Allergen Testing"
+        }
+      ],
+      "new": false,
+      "linkShareAffiliateUrl": "https://api.bestbuy.com/click/-/6318494/pdp?LID=tes&u1="
+    },
+    {
+      "productId": null,
+      "upc": "869390000294",
+      "sku": 6318496,
+      "name": "Nima - Peanut Test Capsules (12-Pack) - Black",
+      "salePrice": 72.99,
+      "releaseDate": null,
+      "url": "https://api.bestbuy.com/click/-/6318496/pdp",
+      "image": "https://img.bbystatic.com/BestBuy_US/images/products/6318/6318496_sa.jpg",
+      "thumbnailImage": "https://img.bbystatic.com/BestBuy_US/images/products/6318/6318496_s.gif",
+      "manufacturer": "Nima",
+      "department": "APPLIANCE",
+      "customerReviewAverage": null,
+      "customerReviewCount": null,
+      "categoryPath": [
+        {
+          "id": "cat00000",
+          "name": "Best Buy"
+        },
+        {
+          "id": "pcmcat242800050021",
+          "name": "Health, Fitness & Beauty"
+        },
+        {
+          "id": "pcmcat333300050027",
+          "name": "Health Monitoring & Testing"
+        },
+        {
+          "id": "pcmcat1539621134914",
+          "name": "Allergen Testing"
+        }
+      ],
+      "new": false,
+      "linkShareAffiliateUrl": "https://api.bestbuy.com/click/-/6318496/pdp?LID=tes&u1="
+    },
+    {
+      "productId": null,
+      "upc": "849813019423",
+      "sku": 6348289,
+      "name": "ZeroDark - Battery Tester & Organizer for 65 Batteries - Black",
+      "salePrice": 29.99,
+      "releaseDate": null,
+      "url": "https://api.bestbuy.com/click/-/6348289/pdp",
+      "image": "https://img.bbystatic.com/BestBuy_US/images/products/6348/6348289_sa.jpg",
+      "thumbnailImage": "https://img.bbystatic.com/BestBuy_US/images/products/6348/6348289_s.gif",
+      "manufacturer": "ZeroDark",
+      "department": "PHOTO/COMMODITIES",
+      "customerReviewAverage": null,
+      "customerReviewCount": null,
+      "categoryPath": [
+        {
+          "id": "cat00000",
+          "name": "Best Buy"
+        },
+        {
+          "id": "abcat0800000",
+          "name": "Cell Phones"
+        },
+        {
+          "id": "abcat0811002",
+          "name": "Cell Phone Accessories"
+        },
+        {
+          "id": "pcmcat326300050013",
+          "name": "Car & Travel Accessories"
+        }
+      ],
+      "new": false,
+      "linkShareAffiliateUrl": "https://api.bestbuy.com/click/-/6348289/pdp?LID=tes&u1="
+    },
+    {
+      "productId": 3257288,
+      "upc": "811772030917",
+      "sku": 25373969,
+      "name": "By Design [LP] - VINYL",
+      "salePrice": 14.99,
+      "releaseDate": "2014-07-29",
+      "url": "https://api.bestbuy.com/click/-/25373969/pdp",
+      "image": "https://img.bbystatic.com/BestBuy_US/images/products/2537/25373969_sa.jpg",
+      "thumbnailImage": "https://img.bbystatic.com/BestBuy_US/images/products/2537/25373969_s.gif",
+      "manufacturer": null,
+      "department": "VIDEO/COMPACT DISC",
+      "customerReviewAverage": null,
+      "customerReviewCount": null,
+      "categoryPath": [
+        {
+          "id": "cat00000",
+          "name": "Best Buy"
+        },
+        {
+          "id": "abcat0600000",
+          "name": "Movies & Music"
+        },
+        {
+          "id": "cat02001",
+          "name": "Music"
+        }
+      ],
+      "new": false,
+      "linkShareAffiliateUrl": "https://api.bestbuy.com/click/-/25373969/pdp?LID=tes&u1="
+    },
+    {
+      "productId": 3392799,
+      "upc": "727361200596",
+      "sku": 28640148,
+      "name": "The Formation of Damnation [LP] - VINYL",
+      "salePrice": 19.99,
+      "releaseDate": "2015-06-23",
+      "url": "https://api.bestbuy.com/click/-/28640148/pdp",
+      "image": "https://img.bbystatic.com/BestBuy_US/images/products/2864/28640148_sa.jpg",
+      "thumbnailImage": "https://img.bbystatic.com/BestBuy_US/images/products/2864/28640148_s.gif",
+      "manufacturer": null,
+      "department": "VIDEO/COMPACT DISC",
+      "customerReviewAverage": null,
+      "customerReviewCount": null,
+      "categoryPath": [
+        {
+          "id": "cat00000",
+          "name": "Best Buy"
+        },
+        {
+          "id": "abcat0600000",
+          "name": "Movies & Music"
+        },
+        {
+          "id": "cat02001",
+          "name": "Music"
+        }
+      ],
+      "new": false,
+      "linkShareAffiliateUrl": "https://api.bestbuy.com/click/-/28640148/pdp?LID=tes&u1="
+    }
+  ]
+}

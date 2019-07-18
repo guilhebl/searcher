@@ -1,0 +1,174 @@
+{
+  "findItemsByProductResponse": [
+    {
+      "ack": [
+        "Success"
+      ],
+      "version": [
+        "1.13.0"
+      ],
+      "timestamp": [
+        "2019-07-17T22:47:11.343Z"
+      ],
+      "searchResult": [
+        {
+          "@count": "1",
+          "item": [
+            {
+              "itemId": [
+                "183859709768"
+              ],
+              "title": [
+                "Ecobee4 Alexa-Enabled Thermostat with Sensor *open box*"
+              ],
+              "globalId": [
+                "EBAY-US"
+              ],
+              "primaryCategory": [
+                {
+                  "categoryId": [
+                    "115949"
+                  ],
+                  "categoryName": [
+                    "Programmable Thermostats"
+                  ]
+                }
+              ],
+              "galleryURL": [
+                "https:\/\/thumbs1.ebaystatic.com\/m\/mkuWQYKDVawBUWOi5IeENqQ\/140.jpg"
+              ],
+              "viewItemURL": [
+                "https:\/\/rover.ebay.com\/rover\/1\/711-53200-19255-0\/1?ff3=2&toolid=10042&campid=1&customid=test&lgeo=1&vectorid=229466&item=183859709768"
+              ],
+              "paymentMethod": [
+                "PayPal"
+              ],
+              "autoPay": [
+                "false"
+              ],
+              "location": [
+                "USA"
+              ],
+              "country": [
+                "US"
+              ],
+              "shippingInfo": [
+                {
+                  "shippingServiceCost": [
+                    {
+                      "@currencyId": "USD",
+                      "__value__": "0.0"
+                    }
+                  ],
+                  "shippingType": [
+                    "Free"
+                  ],
+                  "shipToLocations": [
+                    "Worldwide"
+                  ],
+                  "expeditedShipping": [
+                    "true"
+                  ],
+                  "oneDayShippingAvailable": [
+                    "true"
+                  ],
+                  "handlingTime": [
+                    "1"
+                  ]
+                }
+              ],
+              "sellingStatus": [
+                {
+                  "currentPrice": [
+                    {
+                      "@currencyId": "USD",
+                      "__value__": "189.0"
+                    }
+                  ],
+                  "convertedCurrentPrice": [
+                    {
+                      "@currencyId": "USD",
+                      "__value__": "189.0"
+                    }
+                  ],
+                  "sellingState": [
+                    "Active"
+                  ],
+                  "timeLeft": [
+                    "P6DT16H48M26S"
+                  ]
+                }
+              ],
+              "listingInfo": [
+                {
+                  "bestOfferEnabled": [
+                    "true"
+                  ],
+                  "buyItNowAvailable": [
+                    "false"
+                  ],
+                  "startTime": [
+                    "2019-06-24T15:35:37.000Z"
+                  ],
+                  "endTime": [
+                    "2019-07-24T15:35:37.000Z"
+                  ],
+                  "listingType": [
+                    "FixedPrice"
+                  ],
+                  "gift": [
+                    "false"
+                  ],
+                  "watchCount": [
+                    "1"
+                  ]
+                }
+              ],
+              "returnsAccepted": [
+                "true"
+              ],
+              "condition": [
+                {
+                  "conditionId": [
+                    "1500"
+                  ],
+                  "conditionDisplayName": [
+                    "Open box"
+                  ]
+                }
+              ],
+              "isMultiVariationListing": [
+                "false"
+              ],
+              "pictureURLLarge": [
+                "https:\/\/i.ebayimg.com\/00\/s\/MTM2N1gxNjAw\/z\/LJ8AAOSwePtdEO3C\/$_1.JPG"
+              ],
+              "topRatedListing": [
+                "false"
+              ]
+            }
+          ]
+        }
+      ],
+      "paginationOutput": [
+        {
+          "pageNumber": [
+            "1"
+          ],
+          "entriesPerPage": [
+            "1"
+          ],
+          "totalPages": [
+            "3"
+          ],
+          "totalEntries": [
+            "3"
+          ]
+        }
+      ],
+      "itemSearchURL": [
+        "https:\/\/rover.ebay.com\/rover\/1\/711-53200-19255-0\/1?ff3=4&toolid=10042&campid=1&customid=test&lgeo=1&mpre=http%3A%2F%2Fwww.ebay.com%2Fsch%2F%3F_ddo%3D1%26_ipg%3D1%26_os%3DPL%257CD%26_pgn%3D1%26_productid%3D8021694936"
+      ]
+    }
+  ]
+}
