@@ -1,15 +1,13 @@
 package com.searchprod.searcher.product.model.enumeration;
 
 public enum MarketplaceProvider {
-    WALMART("Walmart", "walmart.com"),
-    BEST_BUY("BestBuy", "bestbuy.com"),
-    EBAY("Ebay", "ebay.com");
+    WALMART("walmart.com"),
+    BEST_BUY("bestbuy.com"),
+    EBAY("ebay.com");
 
-    private final String name;
     private final String url;
 
-    MarketplaceProvider(String name, String url) {
-        this.name = name;
+    MarketplaceProvider(String url) {
         this.url = url;
     }
 
@@ -19,6 +17,6 @@ public enum MarketplaceProvider {
 
     @Override
     public String toString() {
-        return name;
+        return url;
     }
 }

@@ -3,6 +3,7 @@ package com.searchprod.searcher.product.model;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ProductDetail {
     private Product product;
@@ -60,5 +61,22 @@ public class ProductDetail {
 
     public void setProductStats(List<ProductStat> productStats) {
         this.productStats = productStats;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProductDetail that = (ProductDetail) o;
+        return product.equals(that.product) &&
+                Objects.equals(description, that.description) &&
+                Objects.equals(attributes, that.attributes) &&
+                Objects.equals(productDetailItems, that.productDetailItems) &&
+                Objects.equals(productStats, that.productStats);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(product, description, attributes, productDetailItems, productStats);
     }
 }

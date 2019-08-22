@@ -13,10 +13,9 @@ import java.util.List;
 public class ProductDetailResponseBuilder {
 
     public static ProductDetail addDetailItem(ProductDetail a, ProductDetail b) {
-        if (b.getProduct() != null) {
+        if (b != null && b.getProduct() != null) {
             a.getProductDetailItems().add(toProductDetailItem(b));
         }
-
         return a;
     }
 

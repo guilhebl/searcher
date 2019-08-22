@@ -106,9 +106,12 @@ public class WalmartService {
                     .retrieve();
 
             return isSearchByUpc ?
-                    response.bodyToFlux(WalmartSearchItem.class).next().flatMap(this::buildProductDetail)
+                    response.bodyToMono(WalmartSearchBaseResponse.class)
+                            .flatMap(this::buildProductDetail)
                             .onErrorReturn(ProductDetailResponseBuilder.empty()) :
-                    response.bodyToMono(WalmartSearchItem.class).flatMap(this::buildProductDetail);
+                    response.bodyToMono(WalmartSearchItem.class)
+                            .flatMap(this::buildProductDetail)
+                            .onErrorReturn(ProductDetailResponseBuilder.empty());
 
         } catch (Exception e) {
             LOGGER.error("Error on get product detail", e);
@@ -193,9 +196,14 @@ public class WalmartService {
                 items.stream().map(this::toProduct).collect(Collectors.toList())));
     }
 
+    private Mono<ProductDetail> buildProductDetail(WalmartSearchBaseResponse item) {
+        LOGGER.debug(String.format("build Walmart product detail %s", item));
+        return buildProductDetail(item.getItems().get(0));
+    }
+
     private Mono<ProductDetail> buildProductDetail(WalmartSearchItem item) {
         LOGGER.debug(String.format("build Walmart product detail %s", item));
-        return Mono.just(toProductDetail(item));
+        return (item == null || item.getName() == null) ? Mono.empty() : Mono.just(toProductDetail(item));
     }
 
     private ProductDetail toProductDetail(WalmartSearchItem item) {
@@ -209,19 +217,27 @@ public class WalmartService {
     }
 
     private Product toProduct(WalmartSearchItem item) {
-        return new Product(
-                item.getItemId().toString(),
-                item.getUpc(),
-                item.getName(),
-                WALMART.getUrl(),
-                item.getProductTrackingUrl(),
-                imageService.getImageUrlExternal(item.getLargeImage()),
-                imageService.getImageUrl("walmart-logo.png"),
-                BigDecimal.valueOf(Optional.ofNullable(item.getSalePrice()).orElse(0.0D)),
-                item.getCategoryPath(),
-                Optional.ofNullable(item.getNumReviews()).orElse(0),
-                Float.valueOf(Optional.ofNullable(item.getCustomerRating()).orElse("0"))
-        );
+        try {
+            return new Product(
+                    item.getItemId().toString(),
+                    item.getUpc(),
+                    item.getName(),
+                    WALMART.name(),
+                    WALMART.getUrl(),
+                    item.getProductUrl(),
+                    imageService.getImageUrlExternal(item.getLargeImage()),
+                    imageService.getImageUrl("walmart-logo.png"),
+                    BigDecimal.valueOf(Optional.ofNullable(item.getSalePrice()).orElse(0.0D)),
+                    item.getCategoryPath(),
+                    Optional.ofNullable(item.getNumReviews()).orElse(0),
+                    Float.valueOf(Optional.ofNullable(item.getCustomerRating()).orElse("0"))
+            );
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return new Product();
     }
 
 }

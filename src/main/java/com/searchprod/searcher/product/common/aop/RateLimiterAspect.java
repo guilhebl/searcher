@@ -25,12 +25,11 @@ public class RateLimiterAspect {
     @Before("execution(* com.searchprod.searcher.product.service.provider.*.*(..))")
     public void before(JoinPoint joinPoint) {
         var name = joinPoint.getSignature().getDeclaringType().getSimpleName();
-        LOGGER.info("is request possible ? -> {}", name);
-
         if (!rateLimiterService.isRequestPossible(getMarketplaceProvider(name))) {
             LOGGER.info("rate limit reached for {}", name);
             throw new RateLimitException(String.format("rate limit reached for %s", name));
         }
+        LOGGER.info("request allowed for {}", name);
     }
 
     private MarketplaceProvider getMarketplaceProvider(String name) {

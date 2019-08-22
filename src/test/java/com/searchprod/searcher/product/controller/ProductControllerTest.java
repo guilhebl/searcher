@@ -76,6 +76,8 @@ public class ProductControllerTest {
 
         wireMockServer.stubFor(
                 get(urlPathEqualTo("/v1/items"))
+                        .withQueryParam("format", equalTo("json"))
+                        .withQueryParam("apiKey", equalTo("test"))
                         .withQueryParam("upc", equalTo("1"))
                         .willReturn(aResponse()
                                 .withStatus(200)
@@ -243,7 +245,11 @@ public class ProductControllerTest {
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody()
-                .jsonPath("$.product").isEmpty();
+                .jsonPath("$.product").isEmpty()
+                .jsonPath("$.attributes").isEmpty()
+                .jsonPath("$.productStats").isEmpty()
+                .jsonPath("$.description").isEmpty()
+                .jsonPath("$.productDetailItems").isEmpty();
     }
 
     private void testSearchByQuery(String q, boolean isEmpty) {

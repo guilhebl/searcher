@@ -79,7 +79,7 @@ public class BestBuyService {
         LOGGER.info(String.format("get Product detail: %s, %s", id, idType));
 
         try {
-            String uriPath = String.format("%s(%s=%s)", path, idType, id);
+            String uriPath = String.format("%s(%s=%s)", path, getIdTypeBestBuy(idType), id);
             UriComponentsBuilder builder = UriComponentsBuilder.fromPath(uriPath)
                     .queryParam("format", "json")
                     .queryParam("apiKey", apiKey)
@@ -95,13 +95,21 @@ public class BestBuyService {
                     .accept(APPLICATION_JSON)
                     .retrieve()
                     .bodyToMono(BestBuySearchResponse.class)
-                    .flatMap(x -> buildProductDetail(x));
+                    .flatMap(this::buildProductDetail);
 
         } catch (Exception e) {
             LOGGER.error("Error on get product detail", e);
         }
 
         return Mono.empty();
+    }
+
+    private String getIdTypeBestBuy(ProductIdType idType) {
+        switch (idType) {
+            case ID: return "sku";
+            case UPC: return "upc";
+            default: throw new IllegalArgumentException(String.format("Invalid Id Type %s", idType));
+        }
     }
 
     private Mono<ProductDetail> buildProductDetail(BestBuySearchResponse response) {
@@ -167,7 +175,7 @@ public class BestBuyService {
                     .accept(APPLICATION_JSON)
                     .retrieve()
                     .bodyToMono(BestBuySearchResponse.class)
-                    .flatMap(x -> buildResponse(x));
+                    .flatMap(this::buildResponse);
 
         } catch (Exception e) {
             LOGGER.error("Error on search by keywords", e);
@@ -200,6 +208,7 @@ public class BestBuyService {
                 item.getSku(),
                 "",
                 item.getNames().getTitle(),
+                BEST_BUY.name(),
                 BEST_BUY.getUrl(),
                 item.getLinks().getWeb(),
                 imageService.getImageUrlExternal(item.getImages().getStandard()),
@@ -216,6 +225,7 @@ public class BestBuyService {
                 getProductItemId(item),
                 item.getUpc(),
                 item.getName(),
+                BEST_BUY.name(),
                 BEST_BUY.getUrl(),
                 item.getUrl(),
                 imageService.getImageUrlExternal(item.getImage()),

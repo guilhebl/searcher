@@ -8,6 +8,7 @@ public class Product {
     private String upc;
     private String name;
     private String sourceName;
+    private String sourceUrl;
     private String sourceItemDetailViewUrl;
     private String imageUrl;
     private String sourceImageUrl;
@@ -19,10 +20,11 @@ public class Product {
     public Product() {
     }
 
-    public Product(String id, String upc, String name, String sourceName, String sourceItemDetailViewUrl, String imageUrl, String sourceImageUrl, BigDecimal price, String category, Integer numReviews, Float rating) {
+    public Product(String id, String upc, String name, String sourceName, String sourceUrl, String sourceItemDetailViewUrl, String imageUrl, String sourceImageUrl, BigDecimal price, String category, Integer numReviews, Float rating) {
         this.id = id;
         this.upc = upc;
         this.name = name;
+        this.sourceUrl = sourceUrl;
         this.sourceName = sourceName;
         this.sourceItemDetailViewUrl = sourceItemDetailViewUrl;
         this.imageUrl = imageUrl;
@@ -121,6 +123,14 @@ public class Product {
         this.sourceItemDetailViewUrl = sourceItemDetailViewUrl;
     }
 
+    public String getSourceUrl() {
+        return sourceUrl;
+    }
+
+    public void setSourceUrl(String sourceUrl) {
+        this.sourceUrl = sourceUrl;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -130,6 +140,7 @@ public class Product {
                 Objects.equals(upc, product.upc) &&
                 Objects.equals(name, product.name) &&
                 Objects.equals(sourceName, product.sourceName) &&
+                Objects.equals(sourceUrl, product.sourceUrl) &&
                 Objects.equals(sourceItemDetailViewUrl, product.sourceItemDetailViewUrl) &&
                 Objects.equals(imageUrl, product.imageUrl) &&
                 Objects.equals(sourceImageUrl, product.sourceImageUrl) &&
@@ -141,6 +152,6 @@ public class Product {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, upc, name, sourceName, sourceItemDetailViewUrl, imageUrl, sourceImageUrl, price, category, numReviews, rating);
+        return Objects.hash(id, upc, name, sourceName, sourceUrl, sourceItemDetailViewUrl, imageUrl, sourceImageUrl, price, category, numReviews, rating);
     }
 }

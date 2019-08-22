@@ -1,7 +1,9 @@
 package com.searchprod.searcher.product.service;
 
+import com.searchprod.searcher.product.common.util.MultiIterator;
 import com.searchprod.searcher.product.common.util.ProductDetailResponseBuilder;
 import com.searchprod.searcher.product.common.util.ProductSearchResponseBuilder;
+import com.searchprod.searcher.product.model.Product;
 import com.searchprod.searcher.product.model.ProductDetail;
 import com.searchprod.searcher.product.model.ProductSearchRequest;
 import com.searchprod.searcher.product.model.ProductSearchResponse;
@@ -18,7 +20,13 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
+import java.time.Duration;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
@@ -29,24 +37,22 @@ public class ProductService {
     private final EbayService eBayService;
     private final BestBuyService bestBuyService;
     private final String marketplaceProviders;
+    private final Long apiTimeout;
 
     public ProductService(
             final WalmartService walmartService,
             final EbayService eBayService,
             final BestBuyService bestBuyService,
-            @Value("${api.marketplace.providers}") String marketplaceProviders
+            @Value("${api.marketplace.providers}") String marketplaceProviders,
+            @Value("${api.default.timeout}") Long apiTimeout
     ) {
         this.walmartService = walmartService;
         this.eBayService = eBayService;
         this.bestBuyService = bestBuyService;
         this.marketplaceProviders = marketplaceProviders;
+        this.apiTimeout = apiTimeout;
     }
 
-    /**
-     * Searches for products in all providers
-     * @param request search request
-     * @return search list response
-     */
     @Cacheable("productSearch")
     public Mono<ProductSearchResponse> search(ProductSearchRequest request) {
         LOGGER.debug(String.format("search: %s", request));
@@ -57,12 +63,27 @@ public class ProductService {
                     .filter(StringUtils::isNotBlank)
                     .map(MarketplaceProvider::valueOf)
                     .map(p -> searchProvider(p, request))
-                    .reduce(response, (acc, x) -> acc.zipWith(x).map(y -> ProductSearchResponseBuilder.merge(y.getT1(), y.getT2())));
+                    .reduce(response, (acc, x) -> acc.zipWith(x).map(y -> ProductSearchResponseBuilder.merge(y.getT1(), y.getT2())))
+                    .map(this::getGroupedList);
 
         } catch(Exception e) {
             LOGGER.error("error while searching", e);
         }
         return Mono.empty();
+    }
+
+    private ProductSearchResponse getGroupedList(ProductSearchResponse x) {
+        List<Product> output = new LinkedList<>();
+        Map<String,List<Product>> map = x.getList().stream().collect(Collectors.groupingBy(Product::getSourceName));
+        var list = map.values().stream().map(List::iterator).collect(Collectors.toCollection(LinkedList::new));
+        var multiIterator = new MultiIterator<>(list);
+
+        while (multiIterator.hasNext()) {
+            Product p = multiIterator.next();
+            output.add(p);
+        }
+
+        return ProductSearchResponseBuilder.of(x.getSummary(), output);
     }
 
     /**
@@ -77,19 +98,31 @@ public class ProductService {
         LOGGER.debug(String.format("get Product detail: %s, %s, %s", id, idType, source));
 
         try {
-            Mono<ProductDetail> productDetailMono = fetchProductDetail(id, idType, source);
-
-            return Arrays.stream(marketplaceProviders.split(","))
-                    .filter(StringUtils::isNotBlank)
-                    .map(MarketplaceProvider::valueOf)
-                    .filter(x -> x != source)
-                    .map(p -> fetchProductDetail(id, idType, p))
-                    .reduce(productDetailMono, (acc, x) -> acc.zipWith(x).map(y -> ProductDetailResponseBuilder.addDetailItem(y.getT1(), y.getT2())));
+            ProductDetail productDetail = fetchProductDetail(id, idType, source).block();
+            if (productDetail != null && productDetail.getProduct() != null && StringUtils.isNotBlank(productDetail.getProduct().getUpc())) {
+                fetchProductDetailItems(productDetail, source);
+            }
+            return Mono.just(Objects.requireNonNull(productDetail));
 
         } catch(Exception e) {
             LOGGER.error("error on get detail", e);
         }
         return Mono.empty();
+    }
+
+    private void fetchProductDetailItems(ProductDetail detail, MarketplaceProvider source) {
+        var upc = detail.getProduct().getUpc();
+        if (StringUtils.isNotBlank(upc)) {
+            LOGGER.info(String.format("UPC: %s", upc));
+
+            Arrays.stream(marketplaceProviders.split(","))
+                    .filter(StringUtils::isNotBlank)
+                    .map(MarketplaceProvider::valueOf)
+                    .filter(provider -> provider != source)
+                    .parallel()
+                    .map(p -> fetchProductDetail(detail.getProduct().getUpc(), ProductIdType.UPC, p).onErrorReturn(ProductDetailResponseBuilder.empty()))
+                    .forEach(x -> ProductDetailResponseBuilder.addDetailItem(detail, x.block(Duration.ofMillis(apiTimeout))));
+        }
     }
 
     /**

@@ -1,6 +1,5 @@
 package com.searchprod.searcher.product.model.ebay;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
