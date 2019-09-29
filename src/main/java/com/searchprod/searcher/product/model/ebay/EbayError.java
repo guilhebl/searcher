@@ -67,4 +67,17 @@ public class EbayError {
     public void setParameter(List<String> parameter) {
         this.parameter = parameter;
     }
+
+    @Override
+    public String toString() {
+        return "EbayError{" +
+                "errorId=" + errorId +
+                ", domain=" + domain +
+                ", severity=" + severity +
+                ", category=" + category +
+                ", message=" + message +
+                ", subdomain=" + subdomain +
+                ", parameter=" + parameter +
+                '}';
+    }
 }

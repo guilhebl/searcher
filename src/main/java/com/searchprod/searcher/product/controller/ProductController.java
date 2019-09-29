@@ -27,11 +27,9 @@ public class ProductController {
 
     @GetMapping("/search")
     public Mono<ProductSearchResponse> search(@RequestParam("q") Optional<String> query) {
-        var searchRequest = query.isPresent() ?
+        return productService.search(query.isPresent() ?
                 ProductSearchRequestBuilder.of(query.get()) :
-                ProductSearchRequestBuilder.empty();
-
-        return productService.search(searchRequest);
+                ProductSearchRequestBuilder.empty());
     }
 
     @GetMapping("/detail/{id}")

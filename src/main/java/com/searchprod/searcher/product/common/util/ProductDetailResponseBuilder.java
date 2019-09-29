@@ -2,7 +2,6 @@ package com.searchprod.searcher.product.common.util;
 
 import com.searchprod.searcher.product.model.Product;
 import com.searchprod.searcher.product.model.ProductDetail;
-import com.searchprod.searcher.product.model.ProductDetailItem;
 import com.searchprod.searcher.product.model.ProductStat;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
@@ -14,21 +13,9 @@ public class ProductDetailResponseBuilder {
 
     public static ProductDetail addDetailItem(ProductDetail a, ProductDetail b) {
         if (b != null && b.getProduct() != null) {
-            a.getProductDetailItems().add(toProductDetailItem(b));
+            a.getProductDetailItems().add(b.getProduct());
         }
         return a;
-    }
-
-    public static ProductDetailItem toProductDetailItem(ProductDetail productDetail) {
-        var product = productDetail.getProduct();
-        return new ProductDetailItem(
-                product.getSourceName(),
-                product.getSourceItemDetailViewUrl(),
-                product.getSourceImageUrl(),
-                product.getPrice(),
-                product.getNumReviews(),
-                product.getRating()
-        );
     }
 
     public static ProductDetail of(Product product) {
@@ -41,7 +28,7 @@ public class ProductDetailResponseBuilder {
         );
     }
 
-    public static ProductDetail of(Product product, String description, List<ImmutablePair<String, String>> attributes, List<ProductDetailItem> productDetailItems, List<ProductStat> productStats) {
+    public static ProductDetail of(Product product, String description, List<ImmutablePair<String, String>> attributes, List<Product> productDetailItems, List<ProductStat> productStats) {
         return new ProductDetail(
                 product,
                 description,

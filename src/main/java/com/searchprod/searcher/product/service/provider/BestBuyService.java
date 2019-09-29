@@ -77,38 +77,33 @@ public class BestBuyService {
 
     public Mono<ProductDetail> getProductDetail(String id, ProductIdType idType) {
         LOGGER.info(String.format("get Product detail: %s, %s", id, idType));
+        String uriPath = String.format("%s(%s=%s)", path, getIdTypeBestBuy(idType), id);
+        UriComponentsBuilder builder = UriComponentsBuilder.fromPath(uriPath)
+                .queryParam("format", "json")
+                .queryParam("apiKey", apiKey)
+                .queryParam("LID", linkShareId);
 
-        try {
-            String uriPath = String.format("%s(%s=%s)", path, getIdTypeBestBuy(idType), id);
-            UriComponentsBuilder builder = UriComponentsBuilder.fromPath(uriPath)
-                    .queryParam("format", "json")
-                    .queryParam("apiKey", apiKey)
-                    .queryParam("LID", linkShareId);
-
-            return WebClient.builder()
-                    .baseUrl(url)
-                    .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                    .filter(logRequest())
-                    .build()
-                    .get()
-                    .uri(builder.encode().toUriString())
-                    .accept(APPLICATION_JSON)
-                    .retrieve()
-                    .bodyToMono(BestBuySearchResponse.class)
-                    .flatMap(this::buildProductDetail);
-
-        } catch (Exception e) {
-            LOGGER.error("Error on get product detail", e);
-        }
-
-        return Mono.empty();
+        return WebClient.builder()
+                .baseUrl(url)
+                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .filter(logRequest())
+                .build()
+                .get()
+                .uri(builder.encode().toUriString())
+                .accept(APPLICATION_JSON)
+                .retrieve()
+                .bodyToMono(BestBuySearchResponse.class)
+                .flatMap(this::buildProductDetail);
     }
 
     private String getIdTypeBestBuy(ProductIdType idType) {
         switch (idType) {
-            case ID: return "sku";
-            case UPC: return "upc";
-            default: throw new IllegalArgumentException(String.format("Invalid Id Type %s", idType));
+            case ID:
+                return "sku";
+            case UPC:
+                return "upc";
+            default:
+                throw new IllegalArgumentException(String.format("Invalid Id Type %s", idType));
         }
     }
 
@@ -122,29 +117,22 @@ public class BestBuyService {
     }
 
     private Mono<ProductSearchResponse> searchTrending() {
-        try {
-            UriComponentsBuilder builder = UriComponentsBuilder.fromPath(trendingPath)
-                    .queryParam("format", "json")
-                    .queryParam("apiKey", apiKey)
-                    .queryParam("LID", linkShareId);
+        UriComponentsBuilder builder = UriComponentsBuilder.fromPath(trendingPath)
+                .queryParam("format", "json")
+                .queryParam("apiKey", apiKey)
+                .queryParam("LID", linkShareId);
 
-            return WebClient.builder()
-                    .baseUrl(url)
-                    .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                    .filter(logRequest())
-                    .build()
-                    .get()
-                    .uri(builder.encode().toUriString())
-                    .accept(APPLICATION_JSON)
-                    .retrieve()
-                    .bodyToMono(BestBuyTrendingResponse.class)
-                    .flatMap(x -> buildResponse(x));
-
-        } catch (Exception e) {
-            LOGGER.error("Error on search by keywords", e);
-        }
-
-        return Mono.empty();
+        return WebClient.builder()
+                .baseUrl(url)
+                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .filter(logRequest())
+                .build()
+                .get()
+                .uri(builder.encode().toUriString())
+                .accept(APPLICATION_JSON)
+                .retrieve()
+                .bodyToMono(BestBuyTrendingResponse.class)
+                .flatMap(x -> buildResponse(x));
     }
 
     private Mono<ProductSearchResponse> buildResponse(BestBuyTrendingResponse response) {
@@ -156,37 +144,31 @@ public class BestBuyService {
     }
 
     private Mono<ProductSearchResponse> searchByKeywords(ProductSearchRequest request) {
-        try {
-            UriComponentsBuilder builder = UriComponentsBuilder.fromPath(String.format("%s%s",  path, buildKeywordSearchPath(request.getQuery())))
-                    .queryParam("format", "json")
-                    .queryParam("apiKey", apiKey)
-                    .queryParam("LID", linkShareId)
-                    .queryParam("show", fieldList)
-                    .queryParam("page", request.getPage())
-                    .queryParam("pageSize", request.getPageSize());
+        UriComponentsBuilder builder = UriComponentsBuilder.fromPath(String.format("%s%s", path, buildKeywordSearchPath(request.getQuery())))
+                .queryParam("format", "json")
+                .queryParam("apiKey", apiKey)
+                .queryParam("LID", linkShareId)
+                .queryParam("show", fieldList)
+                .queryParam("page", request.getPage())
+                .queryParam("pageSize", request.getPageSize());
 
-            return WebClient.builder()
-                    .baseUrl(url)
-                    .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                    .filter(logRequest())
-                    .build()
-                    .get()
-                    .uri(builder.encode().toUriString())
-                    .accept(APPLICATION_JSON)
-                    .retrieve()
-                    .bodyToMono(BestBuySearchResponse.class)
-                    .flatMap(this::buildResponse);
-
-        } catch (Exception e) {
-            LOGGER.error("Error on search by keywords", e);
-        }
-
-        return Mono.empty();
+        return WebClient.builder()
+                .baseUrl(url)
+                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .filter(logRequest())
+                .build()
+                .get()
+                .uri(builder.encode().toUriString())
+                .accept(APPLICATION_JSON)
+                .retrieve()
+                .bodyToMono(BestBuySearchResponse.class)
+                .flatMap(this::buildResponse);
     }
 
     /**
      * Builds search path pattern for US best buy api
      * sample: input 'deals of the day' : output -> (search=deals&search=of&search=the&search=day)
+     *
      * @param query input query
      * @return formatted path
      */
@@ -238,7 +220,7 @@ public class BestBuyService {
     }
 
     private String buildCategoryPath(List<CategoryPath> categoryPath) {
-        var list = categoryPath.stream().map(x -> x.getName()).collect(Collectors.toList());
+        var list = categoryPath.stream().map(CategoryPath::getName).collect(Collectors.toList());
         return StringUtils.join(list, "-");
     }
 

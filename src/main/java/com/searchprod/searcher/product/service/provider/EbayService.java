@@ -87,80 +87,66 @@ public class EbayService {
             request.setQuery(getRandomSearchQuery());
         }
 
-        try {
-            UriComponentsBuilder builder = UriComponentsBuilder.fromPath(path)
-                    .queryParam("OPERATION-NAME", "findItemsByKeywords")
-                    .queryParam("SERVICE-VERSION", apiVersion)
-                    .queryParam("SECURITY-APPNAME", apiKey)
-                    .queryParam("GLOBAL-ID", "EBAY-US")
-                    .queryParam("RESPONSE-DATA-FORMAT", defaultDataFormat)
-                    .queryParam("affiliate.networkId", affiliateNetworkId)
-                    .queryParam("affiliate.trackingId", affiliateTrackingId)
-                    .queryParam("affiliate.customId", affiliateCustomId)
-                    .queryParam("outputSelector", "PictureURLLarge")
-                    .queryParam("paginationInput.pageNumber", request.getPage())
-                    .queryParam("paginationInput.entriesPerPage", request.getPageSize())
-                    .queryParam("keywords", URLEncoder.encode(request.getQuery(), Charset.defaultCharset()));
+        UriComponentsBuilder builder = UriComponentsBuilder.fromPath(path)
+                .queryParam("OPERATION-NAME", "findItemsByKeywords")
+                .queryParam("SERVICE-VERSION", apiVersion)
+                .queryParam("SECURITY-APPNAME", apiKey)
+                .queryParam("GLOBAL-ID", "EBAY-US")
+                .queryParam("RESPONSE-DATA-FORMAT", defaultDataFormat)
+                .queryParam("affiliate.networkId", affiliateNetworkId)
+                .queryParam("affiliate.trackingId", affiliateTrackingId)
+                .queryParam("affiliate.customId", affiliateCustomId)
+                .queryParam("outputSelector", "PictureURLLarge")
+                .queryParam("paginationInput.pageNumber", request.getPage())
+                .queryParam("paginationInput.entriesPerPage", request.getPageSize())
+                .queryParam("keywords", URLEncoder.encode(request.getQuery(), Charset.defaultCharset()));
 
-            return WebClient.builder()
-                    .baseUrl(url)
-                    .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                    .exchangeStrategies(ExchangeStrategies.builder().codecs(this::acceptedCodecs).build())
-                    .filter(logRequest())
-                    .build()
-                    .get()
-                    .uri(builder.toUriString())
-                    .accept(APPLICATION_JSON)
-                    .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                    .acceptCharset(Charset.defaultCharset())
-                    .retrieve()
-                    .bodyToMono(EbaySearchResponse.class)
-                    .flatMap(this::buildResponse);
-
-        } catch (Exception e) {
-            LOGGER.error("Error on search by keywords", e);
-        }
-        return Mono.empty();
+        return WebClient.builder()
+                .baseUrl(url)
+                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .exchangeStrategies(ExchangeStrategies.builder().codecs(this::acceptedCodecs).build())
+                .filter(logRequest())
+                .build()
+                .get()
+                .uri(builder.toUriString())
+                .accept(APPLICATION_JSON)
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .acceptCharset(Charset.defaultCharset())
+                .retrieve()
+                .bodyToMono(EbaySearchResponse.class)
+                .flatMap(this::buildResponse);
     }
 
     public Mono<ProductDetail> getProductDetail(String id, ProductIdType idType) {
         LOGGER.info(String.format("get Product detail: %s, %s", id, idType));
+        UriComponentsBuilder builder = UriComponentsBuilder.fromPath(path)
+                .queryParam("OPERATION-NAME", "findItemsByKeywords")
+                .queryParam("SERVICE-VERSION", apiVersion)
+                .queryParam("SECURITY-APPNAME", apiKey)
+                .queryParam("GLOBAL-ID", "EBAY-US")
+                .queryParam("RESPONSE-DATA-FORMAT", defaultDataFormat)
+                .queryParam("affiliate.networkId", affiliateNetworkId)
+                .queryParam("affiliate.trackingId", affiliateTrackingId)
+                .queryParam("affiliate.customId", affiliateCustomId)
+                .queryParam("outputSelector", "PictureURLLarge")
+                .queryParam("paginationInput.pageNumber", 1)
+                .queryParam("paginationInput.entriesPerPage", 1)
+                .queryParam("keywords", id);
 
-        try {
-            UriComponentsBuilder builder = UriComponentsBuilder.fromPath(path)
-                    .queryParam("OPERATION-NAME", "findItemsByKeywords")
-                    .queryParam("SERVICE-VERSION", apiVersion)
-                    .queryParam("SECURITY-APPNAME", apiKey)
-                    .queryParam("GLOBAL-ID", "EBAY-US")
-                    .queryParam("RESPONSE-DATA-FORMAT", defaultDataFormat)
-                    .queryParam("affiliate.networkId", affiliateNetworkId)
-                    .queryParam("affiliate.trackingId", affiliateTrackingId)
-                    .queryParam("affiliate.customId", affiliateCustomId)
-                    .queryParam("outputSelector", "PictureURLLarge")
-                    .queryParam("paginationInput.pageNumber", 1)
-                    .queryParam("paginationInput.entriesPerPage", 1)
-                    .queryParam("keywords", id);
-
-            return WebClient.builder()
-                    .baseUrl(url)
-                    .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                    .exchangeStrategies(ExchangeStrategies.builder().codecs(this::acceptedCodecs).build())
-                    .filter(logRequest())
-                    .build()
-                    .get()
-                    .uri(builder.toUriString())
-                    .accept(APPLICATION_JSON)
-                    .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                    .acceptCharset(Charset.defaultCharset())
-                    .retrieve()
-                    .bodyToMono(EbaySearchResponse.class)
-                    .flatMap(this::buildResponseProductDetail);
-
-        } catch (Exception e) {
-            LOGGER.error("Error on get product detail", e);
-        }
-
-        return Mono.empty();
+        return WebClient.builder()
+                .baseUrl(url)
+                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .exchangeStrategies(ExchangeStrategies.builder().codecs(this::acceptedCodecs).build())
+                .filter(logRequest())
+                .build()
+                .get()
+                .uri(builder.toUriString())
+                .accept(APPLICATION_JSON)
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .acceptCharset(Charset.defaultCharset())
+                .retrieve()
+                .bodyToMono(EbaySearchResponse.class)
+                .flatMap(this::buildResponseProductDetail);
     }
 
     private void acceptedCodecs(ClientCodecConfigurer clientCodecConfigurer) {
@@ -170,9 +156,12 @@ public class EbayService {
 
     private String getIdTypeEbay(ProductIdType idType) {
         switch (idType) {
-            case ID: return "ReferenceID";
-            case UPC: return "UPC";
-            default: throw new IllegalArgumentException(String.format("Invalid Ebay Id Type %s", idType));
+            case ID:
+                return "ReferenceID";
+            case UPC:
+                return "UPC";
+            default:
+                throw new IllegalArgumentException(String.format("Invalid Ebay Id Type %s", idType));
         }
     }
 
@@ -189,7 +178,7 @@ public class EbayService {
 
     private boolean isValidEbayFindingServiceResponse(EbayFindingServiceResponse item) {
         if (item.getErrorMessage() != null && !item.getErrorMessage().isEmpty()) {
-            item.getErrorMessage().forEach(x -> LOGGER.error(x.toString()));
+            item.getErrorMessage().get(0).getError().forEach(x -> LOGGER.error(x.toString()));
             return false;
         }
 
@@ -197,11 +186,6 @@ public class EbayService {
                 && !item.getSearchResult().isEmpty()
                 && item.getSearchResult().get(0).getItem() != null
                 && !item.getSearchResult().get(0).getItem().isEmpty();
-    }
-
-    private boolean isValidProductDetailResponse(EbaySearchResponse response) {
-        EbayFindingServiceResponse item = response.getFindItemsByKeywordsResponse().get(0);
-        return isValidEbayFindingServiceResponse(item);
     }
 
     private boolean isValidProductDetailResponse(EbayProductDetailResponse response) {
@@ -212,28 +196,35 @@ public class EbayService {
     private Mono<ProductDetail> buildResponseProductDetail(EbaySearchResponse response) {
         LOGGER.debug(String.format("build Ebay product detail %s", response));
 
-        if (!isValidProductDetailResponse(response)) {
+        var searchResponse = response.getFindItemsByKeywordsResponse().get(0);
+        if (!isValidEbayFindingServiceResponse(searchResponse)) {
             return Mono.just(ProductDetailResponseBuilder.empty());
         }
 
-        var item = response.getFindItemsByKeywordsResponse().get(0).getSearchResult().get(0).getItem().get(0);
-        return Mono.just(ProductDetailResponseBuilder.of(toProduct(item)));
+        return Mono.just(ProductDetailResponseBuilder.of(
+                toProduct(searchResponse.getSearchResult().get(0).getItem().get(0)))
+        );
     }
 
+    /**
+     * Checks for error if no errors build and returns message otherwise returns empty
+     * @param response response from ebay finding api
+     * @return empty or response
+     */
     private Mono<ProductSearchResponse> buildResponse(EbaySearchResponse response) {
-        LOGGER.debug(String.format("build eBay search response, num items: %d", response.getFindItemsByKeywordsResponse().get(0).getSearchResult().size()));
+         LOGGER.debug(String.format("build eBay search response, num items: %s", response));
 
-        var paginationOutput = response.getFindItemsByKeywordsResponse().get(0).getPaginationOutput();
-        var items = response.getFindItemsByKeywordsResponse().get(0).getSearchResult().get(0).getItem();
-        if (items == null || items.isEmpty()) {
+        var searchResponse = response.getFindItemsByKeywordsResponse().get(0);
+        if (!isValidEbayFindingServiceResponse(searchResponse)) {
             return Mono.just(ProductSearchResponseBuilder.empty());
         }
 
+        var items = searchResponse.getSearchResult().get(0).getItem();
         return Mono.just(ProductSearchResponseBuilder.of(
                 ProductSearchResponseBuilder.ofSummary(
-                        Integer.valueOf(paginationOutput.get(0).getPageNumber().get(0)),
-                        Integer.valueOf(paginationOutput.get(0).getTotalPages().get(0)),
-                        Integer.valueOf(paginationOutput.get(0).getTotalEntries().get(0))),
+                        Integer.valueOf(searchResponse.getPaginationOutput().get(0).getPageNumber().get(0)),
+                        Integer.valueOf(searchResponse.getPaginationOutput().get(0).getTotalPages().get(0)),
+                        Integer.valueOf(searchResponse.getPaginationOutput().get(0).getTotalEntries().get(0))),
                 items.stream().map(this::toProduct).collect(Collectors.toList())));
     }
 

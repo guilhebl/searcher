@@ -57,19 +57,13 @@ public class ProductService {
     public Mono<ProductSearchResponse> search(ProductSearchRequest request) {
         LOGGER.debug(String.format("search: %s", request));
 
-        try {
-            var response = Mono.just(ProductSearchResponseBuilder.empty());
-            return Arrays.stream(marketplaceProviders.split(","))
-                    .filter(StringUtils::isNotBlank)
-                    .map(MarketplaceProvider::valueOf)
-                    .map(p -> searchProvider(p, request))
-                    .reduce(response, (acc, x) -> acc.zipWith(x).map(y -> ProductSearchResponseBuilder.merge(y.getT1(), y.getT2())))
-                    .map(this::getGroupedList);
-
-        } catch(Exception e) {
-            LOGGER.error("error while searching", e);
-        }
-        return Mono.empty();
+        var response = Mono.just(ProductSearchResponseBuilder.empty());
+        return Arrays.stream(marketplaceProviders.split(","))
+                .filter(StringUtils::isNotBlank)
+                .map(MarketplaceProvider::valueOf)
+                .map(p -> searchProvider(p, request))
+                .reduce(response, (acc, x) -> acc.zipWith(x).map(y -> ProductSearchResponseBuilder.merge(y.getT1(), y.getT2())))
+                .map(this::getGroupedList);
     }
 
     private ProductSearchResponse getGroupedList(ProductSearchResponse x) {
@@ -97,17 +91,11 @@ public class ProductService {
     public Mono<ProductDetail> getProductDetail(String id, ProductIdType idType, MarketplaceProvider source) {
         LOGGER.debug(String.format("get Product detail: %s, %s, %s", id, idType, source));
 
-        try {
-            ProductDetail productDetail = fetchProductDetail(id, idType, source).block();
-            if (productDetail != null && productDetail.getProduct() != null && StringUtils.isNotBlank(productDetail.getProduct().getUpc())) {
-                fetchProductDetailItems(productDetail, source);
-            }
-            return Mono.just(Objects.requireNonNull(productDetail));
-
-        } catch(Exception e) {
-            LOGGER.error("error on get detail", e);
+        ProductDetail productDetail = fetchProductDetail(id, idType, source).block();
+        if (productDetail != null && productDetail.getProduct() != null && StringUtils.isNotBlank(productDetail.getProduct().getUpc())) {
+            fetchProductDetailItems(productDetail, source);
         }
-        return Mono.empty();
+        return Mono.just(Objects.requireNonNull(productDetail));
     }
 
     private void fetchProductDetailItems(ProductDetail detail, MarketplaceProvider source) {

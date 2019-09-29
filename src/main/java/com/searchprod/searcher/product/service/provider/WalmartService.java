@@ -81,102 +81,81 @@ public class WalmartService {
 
     public Mono<ProductDetail> getProductDetail(String id, ProductIdType idType) {
         LOGGER.info(String.format("get Product detail: %s, %s", id, idType));
+        boolean isSearchByUpc = idType == UPC;
+        String uriPath = isSearchByUpc ? detailPath : detailPath + "/" + id;
 
-        try {
-            boolean isSearchByUpc = idType == UPC;
-            String uriPath = isSearchByUpc ? detailPath : detailPath + "/" + id;
+        UriComponentsBuilder builder = UriComponentsBuilder.fromPath(uriPath)
+                .queryParam("format", "json")
+                .queryParam("apiKey", apiKey)
+                .queryParam("lsPublisherId", affiliateId);
 
-            UriComponentsBuilder builder = UriComponentsBuilder.fromPath(uriPath)
-                    .queryParam("format", "json")
-                    .queryParam("apiKey", apiKey)
-                    .queryParam("lsPublisherId", affiliateId);
-
-            if (isSearchByUpc) {
-                builder.queryParam(UPC.toString(), id);
-            }
-
-            var response = WebClient.builder()
-                    .baseUrl(url)
-                    .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                    .filter(logRequest())
-                    .build()
-                    .get()
-                    .uri(builder.encode().toUriString())
-                    .accept(APPLICATION_JSON)
-                    .retrieve();
-
-            return isSearchByUpc ?
-                    response.bodyToMono(WalmartSearchBaseResponse.class)
-                            .flatMap(this::buildProductDetail)
-                            .onErrorReturn(ProductDetailResponseBuilder.empty()) :
-                    response.bodyToMono(WalmartSearchItem.class)
-                            .flatMap(this::buildProductDetail)
-                            .onErrorReturn(ProductDetailResponseBuilder.empty());
-
-        } catch (Exception e) {
-            LOGGER.error("Error on get product detail", e);
+        if (isSearchByUpc) {
+            builder.queryParam(UPC.toString(), id);
         }
 
-        return Mono.empty();
+        var response = WebClient.builder()
+                .baseUrl(url)
+                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .filter(logRequest())
+                .build()
+                .get()
+                .uri(builder.encode().toUriString())
+                .accept(APPLICATION_JSON)
+                .retrieve();
+
+        return isSearchByUpc ?
+                response.bodyToMono(WalmartSearchBaseResponse.class)
+                        .flatMap(this::buildProductDetail)
+                        .onErrorReturn(ProductDetailResponseBuilder.empty()) :
+                response.bodyToMono(WalmartSearchItem.class)
+                        .flatMap(this::buildProductDetail)
+                        .onErrorReturn(ProductDetailResponseBuilder.empty());
     }
 
     private Mono<ProductSearchResponse> searchByKeywords(ProductSearchRequest request) {
-        try {
-            var page = request.getPage();
-            var start = page > 1 ? (page - 1) * request.getPageSize() + 1 : 1;
+        var page = request.getPage();
+        var start = page > 1 ? (page - 1) * request.getPageSize() + 1 : 1;
 
-            UriComponentsBuilder builder = UriComponentsBuilder.fromPath(path)
-                    .queryParam("format", "json")
-                    .queryParam("responseGroup", responseGroup)
-                    .queryParam("apiKey", apiKey)
-                    .queryParam("lsPublisherId", affiliateId)
-                    .queryParam("start", start)
-                    .queryParam("query", URLEncoder.encode(request.getQuery(), Charset.defaultCharset()));
+        UriComponentsBuilder builder = UriComponentsBuilder.fromPath(path)
+                .queryParam("format", "json")
+                .queryParam("responseGroup", responseGroup)
+                .queryParam("apiKey", apiKey)
+                .queryParam("lsPublisherId", affiliateId)
+                .queryParam("start", start)
+                .queryParam("query", URLEncoder.encode(request.getQuery(), Charset.defaultCharset()));
 
-            return WebClient.builder()
-                    .baseUrl(url)
-                    .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                    .filter(logRequest())
-                    .build()
-                    .get()
-                    .uri(builder.encode().toUriString())
-                    .accept(APPLICATION_JSON)
-                    .retrieve()
-                    .bodyToMono(WalmartSearchResponse.class)
-                    .flatMap(x -> buildResponse(x.getItems(), page, page, x.getTotalResults()));
-
-        } catch (Exception e) {
-            LOGGER.error("Error on search by keywords", e);
-        }
-
-        return Mono.empty();
+        return WebClient.builder()
+                .baseUrl(url)
+                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .filter(logRequest())
+                .build()
+                .get()
+                .uri(builder.encode().toUriString())
+                .accept(APPLICATION_JSON)
+                .retrieve()
+                .bodyToMono(WalmartSearchResponse.class)
+                .flatMap(x -> buildResponse(x.getItems(), page, page, x.getTotalResults()));
     }
 
     private Mono<ProductSearchResponse> searchTrending(ProductSearchRequest request) {
-        try {
-            var page = request.getPage();
-            UriComponentsBuilder builder = UriComponentsBuilder.fromPath(trendingPath)
-                    .queryParam("format", "json")
-                    .queryParam("responseGroup", responseGroup)
-                    .queryParam("apiKey", apiKey)
-                    .queryParam("lsPublisherId", affiliateId);
+        var page = request.getPage();
+        UriComponentsBuilder builder = UriComponentsBuilder.fromPath(trendingPath)
+                .queryParam("format", "json")
+                .queryParam("responseGroup", responseGroup)
+                .queryParam("apiKey", apiKey)
+                .queryParam("lsPublisherId", affiliateId);
 
-            return WebClient.builder()
-                    .baseUrl(url)
-                    .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                    .filter(logRequest())
-                    .build()
-                    .get()
-                    .uri(builder.encode().toUriString())
-                    .accept(APPLICATION_JSON)
-                    .retrieve()
-                    .bodyToMono(WalmartTrendingResponse.class)
-                    .flatMap(x -> buildResponse(x.getItems(), page, page, x.getItems().size()));
-
-        } catch (Exception e) {
-            LOGGER.error("Error on search trending", e);
-        }
-        return Mono.empty();
+        return WebClient.builder()
+                .baseUrl(url)
+                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .filter(logRequest())
+                .build()
+                .get()
+                .uri(builder.encode().toUriString())
+                .accept(APPLICATION_JSON)
+                .retrieve()
+                .bodyToMono(WalmartTrendingResponse.class)
+                .flatMap(x -> buildResponse(x.getItems(), page, page, x.getItems().size()));
     }
 
     private Mono<ProductSearchResponse> buildResponse(
@@ -217,27 +196,20 @@ public class WalmartService {
     }
 
     private Product toProduct(WalmartSearchItem item) {
-        try {
-            return new Product(
-                    item.getItemId().toString(),
-                    item.getUpc(),
-                    item.getName(),
-                    WALMART.name(),
-                    WALMART.getUrl(),
-                    item.getProductUrl(),
-                    imageService.getImageUrlExternal(item.getLargeImage()),
-                    imageService.getImageUrl("walmart-logo.png"),
-                    BigDecimal.valueOf(Optional.ofNullable(item.getSalePrice()).orElse(0.0D)),
-                    item.getCategoryPath(),
-                    Optional.ofNullable(item.getNumReviews()).orElse(0),
-                    Float.valueOf(Optional.ofNullable(item.getCustomerRating()).orElse("0"))
-            );
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return new Product();
+        return new Product(
+                item.getItemId().toString(),
+                item.getUpc(),
+                item.getName(),
+                WALMART.name(),
+                WALMART.getUrl(),
+                item.getProductUrl(),
+                imageService.getImageUrlExternal(item.getLargeImage()),
+                imageService.getImageUrl("walmart-logo.png"),
+                BigDecimal.valueOf(Optional.ofNullable(item.getSalePrice()).orElse(0.0D)),
+                item.getCategoryPath(),
+                Optional.ofNullable(item.getNumReviews()).orElse(0),
+                Float.valueOf(Optional.ofNullable(item.getCustomerRating()).orElse("0"))
+        );
     }
 
 }

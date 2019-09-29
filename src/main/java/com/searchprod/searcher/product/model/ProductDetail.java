@@ -9,13 +9,13 @@ public class ProductDetail {
     private Product product;
     private String description;
     private List<ImmutablePair<String, String>> attributes;
-    private List<ProductDetailItem> productDetailItems;
+    private List<Product> productDetailItems;
     private List<ProductStat> productStats;
 
     public ProductDetail() {
     }
 
-    public ProductDetail(Product product, String description, List<ImmutablePair<String, String>> attributes, List<ProductDetailItem> productDetailItems, List<ProductStat> productStats) {
+    public ProductDetail(Product product, String description, List<ImmutablePair<String, String>> attributes, List<Product> productDetailItems, List<ProductStat> productStats) {
         this.product = product;
         this.description = description;
         this.attributes = attributes;
@@ -47,11 +47,11 @@ public class ProductDetail {
         this.attributes = attributes;
     }
 
-    public List<ProductDetailItem> getProductDetailItems() {
+    public List<Product> getProductDetailItems() {
         return productDetailItems;
     }
 
-    public void setProductDetailItems(List<ProductDetailItem> productDetailItems) {
+    public void setProductDetailItems(List<Product> productDetailItems) {
         this.productDetailItems = productDetailItems;
     }
 
@@ -68,7 +68,7 @@ public class ProductDetail {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProductDetail that = (ProductDetail) o;
-        return product.equals(that.product) &&
+        return Objects.equals(product, that.product) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(attributes, that.attributes) &&
                 Objects.equals(productDetailItems, that.productDetailItems) &&

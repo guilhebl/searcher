@@ -2,7 +2,6 @@ package com.searchprod.searcher.product.model.ebay;
 
 import java.util.List;
 
-//@JsonIgnoreProperties(ignoreUnknown=true)
 public class EbayFindingServiceResponse {
     private List<String> ack;
     private List<String> version;
