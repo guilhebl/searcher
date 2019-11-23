@@ -210,7 +210,7 @@ public class ProductControllerTest {
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .exchange()
                 .expectStatus().isOk()
-                .expectHeader().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .expectHeader().contentType(MediaType.APPLICATION_JSON)
                 .expectBody()
                 .jsonPath("$.product").isNotEmpty()
                 .jsonPath("$.productDetailItems").isNotEmpty()
@@ -263,7 +263,7 @@ public class ProductControllerTest {
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .exchange()
                 .expectStatus().isOk()
-                .expectHeader().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .expectHeader().contentType(MediaType.APPLICATION_JSON)
                 .expectBody();
 
         if (isEmpty) {
